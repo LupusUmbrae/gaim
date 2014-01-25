@@ -21,13 +21,13 @@ Map::~Map() {
 	// TODO Auto-generated destructor stub
 }
 
-void Map::setMap(std::vector<Tile*> map) {
+void Map::setMap(std::vector<core::Tile*> map) {
 	this->tiles.clear();
 
 	this->gameMap.clear();
 
 	SDL_Rect* loc;
-	for (Tile* curTile : map) {
+	for (core::Tile* curTile : map) {
 		loc = new SDL_Rect();
 		loc->x = curTile->x;
 		loc->y = curTile->y;
@@ -45,7 +45,7 @@ void Map::setMap(std::vector<Tile*> map) {
 void Map::render() {
 	int x;
 	int y;
-	for (Tile *curTile : tiles) {
+	for (core::Tile *curTile : tiles) {
 		x = (curTile->x * scale);
 		y = (curTile->y * scale);
 

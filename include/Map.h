@@ -15,7 +15,7 @@
 #include "SDL2/SDL.h"
 
 // Map Includes
-#include "Tile.h"
+#include "core/Tile.h"
 
 namespace map {
 
@@ -23,14 +23,14 @@ class Map {
 public:
 	Map(int x, int y, int h, int w, SDL_Renderer* renderer);
 	virtual ~Map();
-	void setMap(std::vector<Tile*> map);
+	void setMap(std::vector<core::Tile*> map);
 	void render();
 	bool canMove(int x, int y);
 
 private:
 	std::map<SDL_Rect*, utils::MapTexture*> gameMap;
 
-	std::vector<Tile*> tiles;
+	std::vector<core::Tile*> tiles;
 	SDL_Rect* viewSize = new SDL_Rect();
 	SDL_Rect* viewArea = new SDL_Rect();
 

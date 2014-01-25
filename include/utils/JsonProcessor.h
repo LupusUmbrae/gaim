@@ -21,7 +21,7 @@
 #include <SDL2/SDL.h>
 
 // Map Includes
-#include "../Tile.h"
+#include "../core/Tile.h"
 #include "textures/Image.h"
 #include "textures/Text.h"
 
@@ -51,7 +51,7 @@ public:
 	 * @param saveFile File to load
 	 * @return vector of the loaded tiles based on the json file
 	 */
-	std::vector<Tile*> loadMap(std::string saveFile);
+	std::vector<core::Tile*> loadMap(std::string saveFile);
 
 	int getMapWidth() {
 		return this->mapWidth;
@@ -66,7 +66,7 @@ public:
 	 * @param map vector of tiles of the current map
 	 * @return styles json string of the map
 	 */
-	std::string saveMap(std::vector<Tile*>* map, int width, int height);
+	std::string saveMap(std::vector<core::Tile*>* map, int width, int height);
 
 private:
 	SDL_Renderer* renderer;

@@ -67,7 +67,7 @@ bool Gaim::loadResources() {
 	jsonProcessor = new utils::JsonProcessor(renderer);
 	jsonProcessor->loadTilesets("resources/tilesets/");
 
-	std::vector<Tile*> loadedMap = jsonProcessor->loadMap(
+	std::vector<core::Tile*> loadedMap = jsonProcessor->loadMap(
 			"resources/save.json");
 
 	map = new map::Map(0, 0, SCREEN_HEIGHT, SCREEN_WIDTH, renderer);

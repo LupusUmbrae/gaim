@@ -74,15 +74,15 @@ void JsonProcessor::loadTilesets(std::string rootDir) {
 
 }
 
-std::vector<Tile*> JsonProcessor::loadMap(std::string saveFile) {
+std::vector<core::Tile*> JsonProcessor::loadMap(std::string saveFile) {
 	Json::Reader reader;
 	Json::Value mapRoot;
 
 	std::ifstream ifile;
 
-	Tile* loadedTile;
+	core::Tile* loadedTile;
 	utils::MapTexture* texture;
-	std::vector<Tile*> loadedMap;
+	std::vector<core::Tile*> loadedMap;
 
 	std::string tileName;
 	int x;
@@ -109,7 +109,7 @@ std::vector<Tile*> JsonProcessor::loadMap(std::string saveFile) {
 					y = tile["y"].asInt();
 					rotation = tile["rot"].asDouble();
 					if (texture != NULL) {
-						loadedTile = new Tile(x, y, texture);
+						loadedTile = new core::Tile(x, y, texture);
 						loadedTile->setRotation(rotation);
 						loadedMap.push_back(loadedTile);
 					} else {
@@ -126,7 +126,7 @@ std::vector<Tile*> JsonProcessor::loadMap(std::string saveFile) {
 	return loadedMap;
 }
 
-std::string JsonProcessor::saveMap(std::vector<Tile*>* map, int width,
+std::string JsonProcessor::saveMap(std::vector<core::Tile*>* map, int width,
 		int height) {
 	Json::Value root;
 	Json::StyledWriter writer;
@@ -137,7 +137,7 @@ std::string JsonProcessor::saveMap(std::vector<Tile*>* map, int width,
 	root["map"]["area"]["width"] = width;
 	root["map"]["area"]["height"] = height;
 
-	Tile* tile;
+	core::Tile* tile;
 	for (size_t i = 0; i < map->size(); i++) {
 		tile = map->at(i);
 
