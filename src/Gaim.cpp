@@ -134,8 +134,8 @@ void Gaim::handleEvent(SDL_Event event) {
 }
 
 void Gaim::cleanUp() {
-	for (utils::MapTexture* curTex : utils::MapTexture::loadedTextures) {
-		curTex->~MapTexture();
+	for (utils::Texture* curTex : utils::Texture::loadedTextures) {
+		curTex->~Texture();
 		delete curTex;
 	}
 

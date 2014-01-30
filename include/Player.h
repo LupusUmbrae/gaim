@@ -18,7 +18,7 @@
 
 class Player {
 public:
-	Player(utils::MapTexture* playerIcon);
+	Player(utils::Texture* playerIcon);
 	virtual ~Player();
 
 	void render();
@@ -30,7 +30,7 @@ public:
 
 	int scale = 20;
 private:
-	utils::MapTexture* playerIcon;
+	utils::Texture* playerIcon;
 };
 
 #endif /* PLAYER_H_ */

@@ -18,7 +18,7 @@
 
 namespace utils {
 
-class Image: public MapTexture {
+class Image: public Texture {
 public:
 	//! Constructor
 	/*!

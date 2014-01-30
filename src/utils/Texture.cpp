@@ -5,22 +5,22 @@
  *      Author: Robin
  */
 
-#include "utils/MapTextures.h"
+#include "utils/Texture.h"
 
 namespace utils {
 
-std::vector<MapTexture*> MapTexture::loadedTextures = { };
+std::vector<Texture*> Texture::loadedTextures = { };
 
-MapTexture::MapTexture() {
+Texture::Texture() {
 	width = 0;
 	height = 0;
 }
 
-MapTexture::~MapTexture() {
+Texture::~Texture() {
 	SDL_DestroyTexture(texture);
 }
 
-void MapTexture::render(int xPos, int yPos, int width, int height,
+void Texture::render(int xPos, int yPos, int width, int height,
 		SDL_Rect* clip, double angle, SDL_Point* center,
 		SDL_RendererFlip flip) {
 	//Set rendering space and render to screen
@@ -44,11 +44,11 @@ void MapTexture::render(int xPos, int yPos, int width, int height,
 	SDL_RenderCopyEx(renderer, texture, clip, &renderQuad, angle, center, flip);
 }
 
-void MapTexture::setAlpha(Uint8 alpha) {
+void Texture::setAlpha(Uint8 alpha) {
 	SDL_SetTextureAlphaMod(texture, alpha);
 }
 
-bool MapTexture::convertSurface(SDL_Surface* surface) {
+bool Texture::convertSurface(SDL_Surface* surface) {
 	bool success = true;
 
 	// Release the texture if one already exists
@@ -69,7 +69,7 @@ bool MapTexture::convertSurface(SDL_Surface* surface) {
 
 		SDL_FreeSurface(surface);
 
-		MapTexture::loadedTextures.push_back(this);
+		Texture::loadedTextures.push_back(this);
 	} else {
 		logSDLError(std::cerr, "Surface was null");
 		success = false;
@@ -77,23 +77,23 @@ bool MapTexture::convertSurface(SDL_Surface* surface) {
 	return success;
 }
 
-int MapTexture::getHeight() {
+int Texture::getHeight() {
 	return this->height;
 }
 
-int MapTexture::getWidth() {
+int Texture::getWidth() {
 	return this->width;
 }
 
-void MapTexture::setUniqueName(std::string uniqueName) {
+void Texture::setUniqueName(std::string uniqueName) {
 	this->uniqueName = uniqueName;
 }
 
-std::string* MapTexture::getUniqueName() {
+std::string* Texture::getUniqueName() {
 	return &this->uniqueName;
 }
 
-void MapTexture::unload() {
+void Texture::unload() {
 	SDL_DestroyTexture(texture);
 
 	// remove myself from the loaded resources

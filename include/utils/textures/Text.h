@@ -20,7 +20,7 @@
 
 namespace utils {
 
-class Text: public utils::MapTexture {
+class Text: public utils::Texture {
 public:
 	//! Constructor
 	/*!

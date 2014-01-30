@@ -26,13 +26,13 @@ namespace utils {
 /**
  * Wrapper for sdl textures
  */
-class MapTexture {
+class Texture {
 public:
-	MapTexture();
-	~MapTexture();
+	Texture();
+	~Texture();
 
 	//! Static vector of all loaded textures.
-	static std::vector<MapTexture*> loadedTextures;
+	static std::vector<Texture*> loadedTextures;
 
 	//! render this texture
 	/*!

@@ -81,7 +81,7 @@ std::vector<core::Tile*> JsonProcessor::loadMap(std::string saveFile) {
 	std::ifstream ifile;
 
 	core::Tile* loadedTile;
-	utils::MapTexture* texture;
+	utils::Texture* texture;
 	std::vector<core::Tile*> loadedMap;
 
 	std::string tileName;
@@ -99,7 +99,7 @@ std::vector<core::Tile*> JsonProcessor::loadMap(std::string saveFile) {
 				for (Json::Value tile : tiles) {
 					texture = NULL; // clear it
 					tileName = tile["name"].asString();
-					for (utils::MapTexture* curTex : utils::MapTexture::loadedTextures) {
+					for (utils::Texture* curTex : utils::Texture::loadedTextures) {
 						if (curTex->getUniqueName()->compare(tileName) == 0) {
 							texture = curTex;
 							break;

@@ -7,7 +7,7 @@
 
 #include "Player.h"
 
-Player::Player(utils::MapTexture* playerIcon) {
+Player::Player(utils::Texture* playerIcon) {
 	this->playerIcon = playerIcon;
 
 }

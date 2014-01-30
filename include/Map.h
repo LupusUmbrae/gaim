@@ -28,7 +28,7 @@ public:
 	bool canMove(int x, int y);
 
 private:
-	std::map<SDL_Rect*, utils::MapTexture*> gameMap;
+	std::map<SDL_Rect*, utils::Texture*> gameMap;
 
 	std::vector<core::Tile*> tiles;
 	SDL_Rect* viewSize = new SDL_Rect();
